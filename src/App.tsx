@@ -142,7 +142,32 @@ body{
 }
 
 /* ================= HERO ================= */
+.desktop-video{
+  display:block;
+}
 
+.mobile-video{
+  display:none;
+}
+
+@media(max-width:768px){
+
+  .desktop-video{
+    display:none;
+  }
+
+  .mobile-video{
+    display:block;
+  }
+
+  .hero{
+    min-height:100svh;
+  }
+
+  .hero-video{
+    opacity:.22;
+  }
+}
 .hero{
   min-height:100vh;
   position:relative;
@@ -823,18 +848,31 @@ export default function App(){
 
       <section className="hero">
 
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hero-video"
-        >
-          <source
-            src="https://res.cloudinary.com/dn1r2yugu/video/upload/v1778909831/13473641_2560_1440_30fps_s8kcx5.mp4"
-            type="video/mp4"
-          />
-        </video>
+      <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="hero-video desktop-video"
+>
+  <source
+    src="https://res.cloudinary.com/dn1r2yugu/video/upload/v1778909831/13473641_2560_1440_30fps_s8kcx5.mp4"
+    type="video/mp4"
+  />
+</video>
+
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="hero-video mobile-video"
+>
+  <source
+    src="https://res.cloudinary.com/dn1r2yugu/video/upload/v1778912414/13678513_2160_3840_30fps_yljhbt.mp4"
+    type="video/mp4"
+  />
+</video>
 
         <div className="hero-overlay" />
 
