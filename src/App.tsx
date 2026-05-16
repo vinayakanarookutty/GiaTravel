@@ -165,7 +165,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.12;
+  opacity:.50;
 }
 
 .hero-overlay{
@@ -827,7 +827,7 @@ export default function App(){
           className="hero-video"
         >
           <source
-            src="https://res.cloudinary.com/dlpym1qdy/video/upload/v1766402327/8087659-uhd_4096_2160_24fps_dzgqtx.mp4"
+            src="https://res.cloudinary.com/dn1r2yugu/video/upload/v1778909831/13473641_2560_1440_30fps_s8kcx5.mp4"
             type="video/mp4"
           />
         </video>
