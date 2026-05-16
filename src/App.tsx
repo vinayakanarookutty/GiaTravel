@@ -165,7 +165,7 @@ body{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.50;
+  opacity:.12;
 }
 
 .hero-overlay{
