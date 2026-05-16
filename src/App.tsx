@@ -760,7 +760,7 @@ export default function App(){
 
   useEffect(()=>{
 
-    const move = (e)=>{
+    const move = (e:any)=>{
 
       setCursor({
         x:e.clientX,
@@ -803,16 +803,20 @@ export default function App(){
           <a href="#book">Book</a>
         </div>
 
-        <button
-          className="nav-btn"
-          onClick={()=>{
-            document.getElementById("book").scrollIntoView({
-              behavior:"smooth"
-            });
-          }}
-        >
-          Book Now →
-        </button>
+       <button
+  className="nav-btn"
+  onClick={() => {
+    const element = document.getElementById("book");
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }}
+>
+  Book Now →
+</button>
       </nav>
 
       {/* HERO */}
@@ -1145,7 +1149,7 @@ export default function App(){
             <div className="form-group">
               <textarea
                 className="form-control"
-                rows="5"
+                rows={5}
                 placeholder="Travel Details"
               />
             </div>
