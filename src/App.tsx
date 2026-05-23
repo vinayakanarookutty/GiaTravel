@@ -617,89 +617,229 @@ body{
 
 /* ================= FOOTER ================= */
 
+/* ================= FOOTER ================= */
+
 .footer{
-  background:#07111d;
-  color:white;
-  padding:5rem;
+  position:relative;
+  background:
+    radial-gradient(circle at top right,rgba(56,189,248,.08),transparent 30%),
+    linear-gradient(180deg,#f8fcff 0%,#eef8ff 100%);
+  padding:6rem 5rem 2rem;
+  overflow:hidden;
+  border-top:1px solid rgba(56,189,248,.08);
 }
 
-.footer-grid{
+.footer::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.45),
+      rgba(255,255,255,.08)
+    );
+  pointer-events:none;
+}
+
+.footer-top{
+  position:relative;
+  z-index:2;
   display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:3rem;
+  grid-template-columns:1.3fr 1fr .8fr;
+  gap:5rem;
+  align-items:flex-start;
 }
 
-.footer-logo{
+/* LEFT */
+
+.footer-left{
+  max-width:420px;
+}
+
+.footer-brand img{
+  width:190px;
+  object-fit:contain;
+  margin-bottom:2rem;
+}
+
+.footer-address{
+  font-size:1.05rem;
+  line-height:2;
+  color:#5f7289;
+  margin-bottom:2rem;
+}
+
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.footer-contact p{
+  color:#2563eb;
+  font-size:1.02rem;
+  font-weight:500;
+}
+
+.footer-socials{
+  display:flex;
+  gap:1rem;
+  margin-top:2rem;
+}
+
+.footer-socials a{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  border:1px solid rgba(37,99,235,.18);
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:#2563eb;
+  transition:.35s;
+  box-shadow:0 8px 20px rgba(2,132,199,.08);
+}
+
+.footer-socials a:hover{
+  transform:translateY(-5px);
+  background:linear-gradient(135deg,var(--sky),var(--sky3));
+  color:white;
+  box-shadow:0 20px 40px rgba(14,165,233,.22);
+}
+
+/* CENTER */
+
+.footer-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4rem;
+  padding-top:1rem;
+}
+
+.footer-certificates{
+  display:flex;
+  gap:4rem;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.footer-certificates img{
+  width:140px;
+  object-fit:contain;
+  filter:grayscale(10%);
+  transition:.35s;
+}
+
+.footer-certificates img:hover{
+  transform:scale(1.06);
+}
+
+.footer-iata img{
+  width:120px;
+}
+
+/* RIGHT */
+
+.footer-right h3{
   font-family:'Playfair Display',serif;
   font-size:2rem;
-  margin-bottom:1rem;
-  background:linear-gradient(135deg,var(--sky),#7dd3fc);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  margin-bottom:2rem;
+  color:#0f172a;
 }
 
-.footer-text{
-  color:rgba(255,255,255,.45);
-  line-height:2;
-}
-
-.footer h4{
-  margin-bottom:1rem;
-}
-
-.footer ul{
+.footer-right ul{
   list-style:none;
 }
 
-.footer li{
-  margin-bottom:.7rem;
-  color:rgba(255,255,255,.55);
+.footer-right li{
+  margin-bottom:1.1rem;
+  color:#5f7289;
+  font-size:1.02rem;
+  transition:.3s;
+  cursor:pointer;
 }
 
+.footer-right li:hover{
+  color:var(--sky3);
+  transform:translateX(5px);
+}
+
+/* INFO AREA */
+
+.footer-info-box{
+  margin-top:5rem;
+  background:rgba(255,255,255,.7);
+  border:1px solid rgba(56,189,248,.1);
+  backdrop-filter:blur(12px);
+  border-radius:22px;
+  padding:1.5rem 2rem;
+  text-align:center;
+  line-height:2;
+  color:#5f7289;
+  box-shadow:0 15px 40px rgba(2,132,199,.06);
+}
+
+.footer-note{
+  margin-top:1.5rem;
+  text-align:center;
+  color:#718096;
+  line-height:2;
+  max-width:1200px;
+  margin-inline:auto;
+  font-size:.95rem;
+}
+
+/* BOTTOM */
+
 .footer-bottom{
-  border-top:1px solid rgba(255,255,255,.08);
-  margin-top:4rem;
+  margin-top:3rem;
   padding-top:2rem;
-  color:rgba(255,255,255,.4);
-  font-size:.8rem;
+  border-top:1px solid rgba(15,23,42,.08);
+  text-align:center;
+  color:#718096;
+  font-size:.92rem;
+  letter-spacing:.05em;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:980px){
 
-  .nav{
-    padding:1rem 1.2rem;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .section,
-  .booking,
   .footer{
-    padding:5rem 1.5rem;
+    padding:5rem 1.5rem 2rem;
   }
 
-  .services-grid,
-  .gallery-grid,
-  .test-grid,
-  .booking-grid,
-  .editorial,
-  .footer-grid,
-  .hero-stats{
+  .footer-top{
     grid-template-columns:1fr;
+    gap:4rem;
+    text-align:center;
   }
 
-  .editorial-content{
-    padding:3rem 1.5rem;
+  .footer-left{
+    max-width:100%;
   }
 
-  .gallery-card{
-    height:420px;
+  .footer-socials{
+    justify-content:center;
   }
+
+  .footer-certificates{
+    gap:2rem;
+  }
+
+  .footer-right li:hover{
+    transform:none;
+  }
+
 }
+
 `;
 
 const SERVICES = [
@@ -818,7 +958,7 @@ export default function App(){
 
       <nav className={`nav ${scrolled ? "solid" : ""}`}>
         <div className="logo">
-          GIA <span>Travel</span>
+          GIA Travel 
         </div>
 
         <div className="nav-links">
@@ -1127,7 +1267,7 @@ export default function App(){
 
             <div className="eyebrow" style={{color:"white"}}>
               Book Your Journey
-            </div>
+            </div
 
             <h2
               className="section-title"
@@ -1204,63 +1344,97 @@ export default function App(){
 
       {/* FOOTER */}
 
-      <footer className="footer">
+     <footer className="footer">
 
-        <div className="footer-grid">
+  <div className="footer-top">
 
-          <div>
+    <div className="footer-left">
 
-            <div className="footer-logo">
-              GIA Travel
-            </div>
+      <div className="footer-brand">
+        <img
+          src="/logo.png"
+          alt="GIA Travel"
+          className="footer-logo-img"
+        />
+      </div>
 
-            <div className="footer-text">
-              Bespoke luxury travel experiences with premium service,
-              exclusive fares, and world-class destinations.
-            </div>
+      <p className="footer-address">
+        Park House, Birmingham,<br />
+        United Kingdom, B45 9AH
+      </p>
 
-          </div>
+      <div className="footer-contact">
+        <p>🇮🇳 +91 9526761047</p>
+        <p>🇬🇧 +44 1212882244</p>
+        <p>contactus@giatravel.co.uk</p>
+      </div>
 
-          <div>
-            <h4>Services</h4>
+      <div className="footer-socials">
+        <a href="#"><i className="fab fa-facebook-f"></i></a>
+        <a href="#"><i className="fab fa-instagram"></i></a>
+        <a href="#"><i className="fas fa-link"></i></a>
+      </div>
 
-            <ul>
-              <li>Flights</li>
-              <li>Cruises</li>
-              <li>Hotels</li>
-              <li>Visa Support</li>
-            </ul>
-          </div>
+    </div>
 
-          <div>
-            <h4>Company</h4>
+    <div className="footer-center">
 
-            <ul>
-              <li>About</li>
-              <li>Privacy</li>
-              <li>Terms</li>
-              <li>Support</li>
-            </ul>
-          </div>
+      <div className="footer-certificates">
+        <img src="/abta.png" alt="ABTA" />
+        <img src="/atol.png" alt="ATOL" />
+      </div>
 
-          <div>
-            <h4>Contact</h4>
+      <div className="footer-iata">
+  <img src="/iata.png" alt="IATA" />
+</div>
 
-            <ul>
-              <li>+44 121 288 2244</li>
-              <li>+91 9526 761 047</li>
-              <li>contactus@giatravel.co.uk</li>
-            </ul>
-          </div>
+    </div>
 
-        </div>
+    <div className="footer-right">
 
-        <div className="footer-bottom">
-          © 2026 GIA Travel — Luxury Travel Experiences Worldwide
-        </div>
+      <h3>Footer Menu</h3>
 
-      </footer>
+      <ul>
+        <li>Terms And Conditions</li>
+        <li>About Us</li>
+        <li>Privacy Policy</li>
+        <li>Refund Policy</li>
+      </ul>
 
+    </div>
+
+  </div>
+
+  <div className="footer-info-box">
+    We are a member of ABTA with membership number P8616. We follow ABTA’s
+    Code of Conduct to provide a high standard of service to you.
+  </div>
+
+  <div className="footer-note">
+    For the latest travel advice from the Foreign Office including security and
+    local laws, plus passport and visa information.
+  </div>
+
+  <div className="footer-note">
+    We are a licensed ATOL holder, which means your payments are protected
+    under the Air Travel Organiser’s Licence scheme.
+  </div>
+
+  <div className="footer-note">
+    To confirm your travel arrangements are protected, please call our
+    administration team between 09:30 – 18:00 GMT.
+  </div>
+
+  <div className="footer-note">
+    For extra protection, we recommend paying by credit card, which provides
+    coverage under Section 75 of the Consumer Credit Act.
+  </div>
+
+  <div className="footer-bottom">
+    © 2026 GIA Travel UK LTD
+  </div>
+
+</footer>
     </>
   );
 }
